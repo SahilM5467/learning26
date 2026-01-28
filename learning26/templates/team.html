@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+         <h1> IPL Team </h1>
+    </center>
+
+    <h1>Team Name : {{name}}</h1>
+    <h1>Team Captain : {{captain}}</h1></br>
+
+    <h1> Team Players : {{players}}</h1>
+    {% for i in players %}
+        <h3> {{i}} </h3>
+    {% endfor %}
+
+    </br>
+    <h1> Team Owner : {{owner}} </h1>
+    </br>
+    
+    <h1> Team Trophies : {{trophies}} </h1>
+    {% if trophies < 5 %}
+        <h1> Team is good. </h1>
+    {% else %}
+        <h1> Team is excellent. </h1>
+    {% endif %}
+    
+
+</body>
+</html>
