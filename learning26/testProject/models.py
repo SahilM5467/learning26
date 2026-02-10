@@ -9,12 +9,15 @@ class User(models.Model):
 
     name = models.CharField(max_length=100)
     email = models.EmailField(max_length=150, unique=True)
-    password = models.CharField(max_length=255)  # store hashed password
+    password = models.CharField(max_length=255)  
 
     role = models.CharField(max_length=20, choices=ROLE_CHOICES)
 
-    status = models.BooleanField(default=True)  # active/inactive
+    status = models.BooleanField(default=True)  
     created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        db_table = "user"
 
     def __str__(self):
         return f"{self.name} ({self.role})"
@@ -60,6 +63,9 @@ class Survey(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+    class Meta:
+        db_table = "survey"
+
     def __str__(self):
         return self.title
 
@@ -95,6 +101,9 @@ class SurveyTemplate(models.Model):
         related_name="generated_templates"
     )
 
+    class Meta:
+        db_table = "surveyTemplate"
+
     def __str__(self):
         return self.name
 
@@ -124,6 +133,9 @@ class Question(models.Model):
 
     placeholder_text = models.CharField(max_length=150, blank=True, null=True)
 
+    class Meta:
+        db_table = "question"
+
     def __str__(self):
         return f"Q{self.question_order}: {self.question_text[:40]}"
 
@@ -136,6 +148,9 @@ class Option(models.Model):
     )
 
     option_text = models.CharField(max_length=200)
+
+    class Meta:
+        db_table = "option"
 
     def __str__(self):
         return self.option_text
@@ -165,6 +180,9 @@ class Response(models.Model):
 
     response_pdf_path = models.CharField(max_length=255, blank=True, null=True)
 
+    class Meta:
+        db_table = "response"
+
     def __str__(self):
         return f"Response #{self.id} - {self.survey.title}"
 
@@ -183,6 +201,9 @@ class Answer(models.Model):
     )
 
     answer_text = models.TextField()
+    
+    class Meta:
+        db_table = "answer"
 
     def __str__(self):
         return f"Answer #{self.id} (Response #{self.response.id})"
@@ -204,6 +225,9 @@ class Notification(models.Model):
     type = models.CharField(max_length=10, choices=NOTIFICATION_TYPE_CHOICES)
 
     sent_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        db_table = "notification"
 
     def __str__(self):
         return f"Notification to {self.user.name}"
@@ -236,6 +260,9 @@ class Report(models.Model):
     )
 
     file_path = models.CharField(max_length=255)
+
+    class Meta:
+        db_table = "report"
 
     def __str__(self):
         return f"Report - {self.survey.title} ({self.export_format})"
