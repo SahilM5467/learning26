@@ -1,10 +1,10 @@
 <h1> Employee List </h1>
 
-<h3> {{employees1}} <h3>
+{% comment %} <h3> {{employees1}} <h3>
 
-<h3> {{employees2}} <h3>
+<h3> {{employees2}} <h3> {% endcomment %}
 
-<table border=1>
+<table>
     <tr>
         <th> Id </th>
         <th> Name </th>
@@ -21,9 +21,12 @@
         <td> {{emp.salary}} </td>
         <td> {{emp.post}} </td>
         <td> {{emp.join_date}} </td>
+        <td> <a href = "{% url 'deleteEmployee' emp.id %}"> DELETE </a> </td>
     </tr>
     {% endfor %}
 </table>
+
+
 
 
 

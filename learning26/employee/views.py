@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse, redirect
 from . models import Employee,Course,Car,Bike
 from . forms import EmployeeeForm,CourseForm,CarForm,BikeForm
 from django.db.models import Q
@@ -121,5 +121,11 @@ def createBikeForm(request):
     else :
         form = BikeForm()
         return render(request, "employee/createBikeForm.html",{"form":form})
+
+def deleteEmployee(request,id):
+    print("id from url = ",id)
+    Employee.objects.filter(id=id).delete()
+    return redirect("employeeList")
+
 
 
