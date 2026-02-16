@@ -1,17 +1,14 @@
 from django.shortcuts import render, HttpResponse, redirect
 from . models import Employee,Course,Car,Bike
-from . forms import EmployeeeForm,CourseForm,CarForm,BikeForm
+from . forms import EmployeeForm,CourseForm,CarForm,BikeForm
 from django.db.models import Q
 
 
 # Create your views here.
 def employeeList(request):
-    employees1 = Employee.objects.all().values()
-    employees2 = Employee.objects.all().values_list()
-    print(employees1)
-    print(employees2)
+    employees = Employee.objects.all().order_by("id").values()
 
-    return render(request, "employee/employeeList.html", {'employees1':employees1,'employees2':employees2})
+    return render(request, "employee/employeeList.html", {"employees":employees})
 
 def employeeFilter(request):
     
@@ -85,11 +82,11 @@ def employeeFilter(request):
 def createEmployeeForm(request):
     print(request.method)
     if request.method == "POST":
-        form = EmployeeeForm(request.POST)
+        form = EmployeeForm(request.POST)
         form.save()
-        return HttpResponse("Employee Added...")
+        return redirect("employeeList") 
     else :
-        form = EmployeeeForm()
+        form = EmployeeForm()
         return render(request, "employee/createEmployeeForm.html",{"form":form})
 
 def createCourseForm(request):
@@ -122,10 +119,43 @@ def createBikeForm(request):
         form = BikeForm()
         return render(request, "employee/createBikeForm.html",{"form":form})
 
+def filterEmployee(request):
+    print("filter employee called...")
+    employees = Employee.objects.filter(age__gte=20).values()
+    print("filter employees = ",employees)
+    return render(request,"employee/employeeList.html",{"employees":employees})
+
+def updateEmployee(request,id):
+    
+    employee = Employee.objects.get(id=id) 
+    
+    if request.method == "POST":
+        form = EmployeeForm(request.POST,instance=employee)
+        form.save()
+        return redirect("employeeList")
+    else:
+        form = EmployeeForm(instance=employee)    
+        return render(request,"employee/updateEmployee.html",{"form":form})
+
 def deleteEmployee(request,id):
     print("id from url = ",id)
     Employee.objects.filter(id=id).delete()
     return redirect("employeeList")
+
+def sortEmployee(request,id):
+
+    if id==1:
+        print("filter employee called...")
+        employees = Employee.objects.all().order_by("id").values()
+        print("filter employees = ",employees)
+        return render(request,"employee/employeeList.html",{"employees":employees})
+    else:
+        print("filter employee called...")
+        employees = Employee.objects.all().order_by("-id").values()
+        print("filter employees = ",employees)
+        return render(request,"employee/employeeList.html",{"employees":employees})
+
+
 
 
 
