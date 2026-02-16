@@ -1,0 +1,7 @@
+<h1> Create Service Form </h1>
+<a href="{% url 'serviceList' %}"> Service List </a>
+<form method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="Submit">
+</form>
