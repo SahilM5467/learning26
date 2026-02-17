@@ -1,6 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+
 <h1> Employee List </h1>
 
-<a href="{% url 'createEmployeeForm'%}"> CREATE EMPLOYEE <a/> </br>
+<a href="{% url 'createEmployeeForm'%}"> CREATE EMPLOYEE <a/>
 <a href ="{% url 'filterEmployee' %}"> FILTER </a> 
 <a href ="{% url 'sortEmployee' 1 %}"> ASCENDING </a> 
 <a href ="{% url 'sortEmployee' 0 %}"> DESCENDING </a> 
@@ -13,8 +16,10 @@
         <th> Salary </th>
         <th> Post </th>
         <th> Join Date </th>
+        <th> Update </th>
+        <th> Delete </th>
     </tr>
-     {% for emp in employees %}
+    {% for emp in employees %}
     <tr>
         <td> {{emp.id}} </td>
         <td> {{emp.name}} </td>
@@ -28,6 +33,7 @@
     {% endfor %}
 </table>
 
+{% endblock content %}
 
 
 
