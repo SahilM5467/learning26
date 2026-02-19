@@ -1,29 +1,20 @@
-<h1> Service List </h1>
 
-<a href="{% url 'createServiceForm'%}"> CREATE SERVICE <a/> </br>
+{% extends 'base.html' %}
+{% block content %}
+<div class="services-grid">
 
-<table>
-    <tr>
-        <th> Id </th>
-        <th> Name </th>
-        <th> Category </th>
-        <th> Price </th>
-    </tr>
-     {% for service in services %}
-    <tr>
-        <td> {{service.id}} </td>
-        <td> {{service.name}} </td>
-        <td> {{service.category}} </td>
-        <td> {{service.price}} </td>
-        <td> <a href = "{% url 'updateService' service.id %}"> UPDATE </a> </td>
-        <td> <a href = "{% url 'deleteService' service.id %}"> DELETE </a> </td>  
-    </tr>
-    {% endfor %}
-</table>
+{% for service in services  %}
+    <div class="service-card">
+    <div class="card-image">
+      <img src="https://via.placeholder.com/400x300" alt="Service Image">
+    </div>
+    <div class="card-content">
+      <span class="service-category">{{service.categoryId.categoryName}}</span>
+      <h3 class="service-title">{{service.serviceName}}</h3>
+    </div>
+  </div>
+{% endfor %}
 
-
-
-
-
-
-
+    
+  </div>
+  {% endblock content %}

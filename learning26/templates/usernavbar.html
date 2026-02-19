@@ -3,8 +3,10 @@
         <a href="#">Django</a>
     </div>
     <div class="nav-links">
-        <a href="employeeList">Employee List</a>
-        <a href="createEmployeeForm">Create Employee</a>
-        <a href="#">Contact</a>
+        <a href="{% url 'employeeList' %}">Employee List</a>
+        <a href="{% url 'createEmployeeForm' %}">Create Employee</a>
+        <a href="{% url 'contactUs' %}">Contact</a>
+        <a href="{% url 'serviceList' %}">Service List</a>
+        <a href="{% url 'createServiceForm' %}">Create Service</a>
     </div>
 </nav>

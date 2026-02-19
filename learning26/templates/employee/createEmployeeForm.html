@@ -1,13 +1,23 @@
 {% extends "base.html" %}
-
 {% block content %}
 
-<h1> Create Employee Form </h1>
-<a href="{% url 'employeeList' %}">Employee List</a>
-<form method="POST">
-    {% csrf_token %}
-    {{form}}
-    <input type="submit" value="Submit">
-</form>
+<div class="form-page">
 
+    <div class="form-card">
+        <h1>Create Employee</h1>
+
+        <a href="{% url 'employeeList' %}" class="back-link">← Employee List</a>
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <div class="form-fields">
+                {{ form.as_p }}
+            </div>
+
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+    </div>
+
+</div>
 {% endblock content %}

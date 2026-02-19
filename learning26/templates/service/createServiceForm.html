@@ -1,7 +1,28 @@
-<h1> Create Service Form </h1>
-<a href="{% url 'serviceList' %}"> Service List </a>
-<form method="POST">
-    {% csrf_token %}
-    {{form.as_p}}
-    <input type="submit" value="Submit">
-</form>
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="form-page">
+
+    <div class="form-card">
+        <h1>Create Service</h1>
+
+        <a href="{% url 'serviceList' %}" class="back-link">← Service List</a>
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <div class="form-fields">
+                {{ form.as_p }}
+                {% comment %} {{form.serviceName | as_crispy_field}}
+                {{form.serviceDescription | as_crispy_field}}
+                {{form.servicePrice | as_crispy_field}}
+                {{form.categoryId | as_crispy_field}}  {% endcomment %}
+            </div>
+
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+    </div>
+
+</div>
+{% endblock content %}
