@@ -1,11 +1,11 @@
-/* =========================
+/* =========================================================
    GLOBAL RESET
-========================= */
+========================================================= */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
 }
 
 body {
@@ -14,9 +14,9 @@ body {
     min-height: 100vh;
 }
 
-/* =========================
+/* =========================================================
    NAVBAR
-========================= */
+========================================================= */
 .navbar {
     background-color: #1f2937;
     color: #fff;
@@ -54,18 +54,18 @@ body {
     color: #1f2937;
 }
 
-/* =========================
+/* =========================================================
    PAGE WRAPPER
-========================= */
+========================================================= */
 .page-container {
     width: 95%;
     max-width: 1200px;
     margin: 30px auto;
 }
 
-/* =========================
-   PAGE HEADER
-========================= */
+/* =========================================================
+   PAGE HEADER + ACTION BUTTONS
+========================================================= */
 .page-header {
     display: flex;
     justify-content: space-between;
@@ -81,9 +81,6 @@ body {
     color: #111827;
 }
 
-/* =========================
-   ACTION BUTTONS
-========================= */
 .actions {
     display: flex;
     gap: 10px;
@@ -110,7 +107,7 @@ body {
     background: #1d4ed8;
 }
 
-/* Secondary Buttons */
+/* Secondary Button */
 .actions a.secondary-btn {
     background: #fff;
     color: #111827;
@@ -120,12 +117,12 @@ body {
 .actions a.secondary-btn:hover {
     background: #111827;
     color: #fff;
-    border: 1px solid #111827;
+    border-color: #111827;
 }
 
-/* =========================
-   TABLE CARD
-========================= */
+/* =========================================================
+   TABLE CARD + TABLE DESIGN
+========================================================= */
 .table-card {
     background: #fff;
     border-radius: 14px;
@@ -134,9 +131,6 @@ body {
     overflow-x: auto;
 }
 
-/* =========================
-   TABLE DESIGN
-========================= */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -164,9 +158,7 @@ tr:hover td {
     background: #f9fafb;
 }
 
-/* =========================
-   UPDATE & DELETE BUTTONS
-========================= */
+/* Table Action Buttons */
 td a {
     text-decoration: none;
     font-size: 13px;
@@ -177,7 +169,6 @@ td a {
     display: inline-block;
 }
 
-/* Update */
 td a.update-btn {
     background: #16a34a;
     color: #fff;
@@ -187,7 +178,6 @@ td a.update-btn:hover {
     background: #15803d;
 }
 
-/* Delete */
 td a.delete-btn {
     background: #dc2626;
     color: #fff;
@@ -197,9 +187,191 @@ td a.delete-btn:hover {
     background: #b91c1c;
 }
 
-/* =========================
+/* =========================================================
+   SERVICES GRID (Urban Company Style)
+========================================================= */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 24px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.service-card {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    overflow: hidden;
+    transition: 0.2s ease;
+    cursor: pointer;
+}
+
+.service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.10);
+}
+
+.card-image {
+    width: 100%;
+    height: 180px;
+    background-color: #f0f0f0;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.service-category {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #555;
+    font-weight: 600;
+    background-color: #f5f5f5;
+    padding: 4px 8px;
+    border-radius: 6px;
+    align-self: flex-start;
+}
+
+.service-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #111827;
+    margin: 0;
+    line-height: 1.4;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* =========================================================
+   FORM PAGE (Crispy Forms + Custom Validation)
+========================================================= */
+.form-page {
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px 15px;
+}
+
+.form-card {
+    width: 100%;
+    max-width: 520px;
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 28px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.form-card h1 {
+    font-size: 26px;
+    margin-bottom: 10px;
+    font-weight: 700;
+    color: #111827;
+}
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 18px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1009dd;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+/* Crispy Inputs */
+.form-control,
+select,
+textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 12px;
+    border: 1px solid #d1d5db;
+    font-size: 15px;
+    outline: none;
+    transition: 0.2s ease;
+    background: #fff;
+}
+
+/* Focus */
+.form-control:focus,
+select:focus,
+textarea:focus {
+    border-color: #111827;
+    box-shadow: 0 0 0 3px rgba(17, 24, 39, 0.12);
+}
+
+/* Submit Button */
+.submit-btn {
+    width: 100%;
+    margin-top: 14px;
+    padding: 12px;
+    border: none;
+    border-radius: 14px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    background: #111827;
+    color: white;
+    transition: 0.2s ease;
+}
+
+.submit-btn:hover {
+    opacity: 0.93;
+}
+
+/* =========================================================
+   FORCE ERROR TEXT RED (Crispy + Django)
+========================================================= */
+
+/* Django default errors */
+.errorlist li {
+    color: #e11d48 !important;
+}
+
+/* Crispy / Bootstrap error classes */
+.invalid-feedback,
+.text-danger,
+.help-block,
+.form-text.text-muted {
+    color: #e11d48 !important;
+    font-size: 13px;
+    font-weight: 600;
+    margin-top: 6px;
+}
+
+/* If error is inside <p class="help-block"> */
+.help-block {
+    display: block;
+}
+
+/* Highlight fields with errors */
+.is-invalid,
+input.is-invalid,
+select.is-invalid,
+textarea.is-invalid {
+    border-color: #e11d48 !important;
+    box-shadow: 0 0 0 3px rgba(225, 29, 72, 0.10) !important;
+}
+
+
+/* =========================================================
    FOOTER
-========================= */
+========================================================= */
 .footer {
     background-color: #1f2937;
     color: #fff;
@@ -209,12 +381,17 @@ td a.delete-btn:hover {
     font-size: 14px;
 }
 
-/* =========================
+/* =========================================================
    RESPONSIVE
-========================= */
+========================================================= */
 @media (max-width: 768px) {
     .page-header h1 {
         font-size: 22px;
+    }
+
+    .nav-links a {
+        font-size: 14px;
+        padding: 7px 10px;
     }
 
     .actions a {
@@ -222,187 +399,3 @@ td a.delete-btn:hover {
         padding: 9px 12px;
     }
 }
-
-/* =========================
-   CREATE EMPLOYEE FORM PAGE
-========================= */
-
-.form-page {
-    width: 95%;
-    max-width: 600px;
-    margin: 40px auto;
-}
-
-.form-card {
-    background: #fff;
-    padding: 25px;
-    border-radius: 16px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-}
-
-.form-card h1 {
-    font-size: 26px;
-    font-weight: 700;
-    margin-bottom: 10px;
-    color: #111827;
-}
-
-/* Back link */
-.back-link {
-    display: inline-block;
-    margin-bottom: 18px;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 600;
-    color: #2563eb;
-    transition: 0.2s ease;
-}
-
-.back-link:hover {
-    color: #1d4ed8;
-    text-decoration: underline;
-}
-
-/* Django form fields */
-.form-fields p {
-    margin-bottom: 15px;
-    display: flex;
-    flex-direction: column;
-}
-
-.form-fields label {
-    font-size: 14px;
-    font-weight: 600;
-    margin-bottom: 6px;
-    color: #374151;
-}
-
-/* Input fields */
-.form-fields input,
-.form-fields select,
-.form-fields textarea {
-    padding: 12px 14px;
-    border: 1px solid #d1d5db;
-    border-radius: 10px;
-    outline: none;
-    font-size: 14px;
-    transition: 0.25s ease;
-    background: #f9fafb;
-}
-
-/* Focus effect */
-.form-fields input:focus,
-.form-fields select:focus,
-.form-fields textarea:focus {
-    border-color: #2563eb;
-    background: #fff;
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
-}
-
-/* Submit button */
-.submit-btn {
-    width: 100%;
-    padding: 12px;
-    border: none;
-    border-radius: 12px;
-    background: #2563eb;
-    color: #fff;
-    font-size: 15px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: 0.25s ease;
-    margin-top: 10px;
-    
-}
-
-.submit-btn:hover {
-    background: #1d4ed8;
-}
-
-/* Responsive */
-@media (max-width: 500px) {
-    .form-card {
-        padding: 18px;
-    }
-
-    .form-card h1 {
-        font-size: 22px;
-    }
-}
-
-/* 1. The Grid Container */
-.services-grid {
-    display: grid;
-    /* This magic line creates responsive columns automatically */
-    /* It creates as many columns as fit, but never smaller than 250px */
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 24px;
-    /* Space between rows and columns */
-    padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-/* 2. The Service Card */
-.service-card {
-    background: #fff;
-    border: 1px solid #e0e0e0;
-    border-radius: 12px;
-    overflow: hidden;
-    /* Ensures image respects the border radius */
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    cursor: pointer;
-}
-
-/* Hover Effect (Urban Company style lift) */
-.service-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-}
-
-/* 3. The Image Area */
-.card-image {
-    width: 100%;
-    height: 180px;
-    /* Fixed height for consistency */
-    background-color: #f0f0f0;
-}
-
-.card-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    /* Prevents image distortion */
-}
-
-/* 4. The Content Area */
-.card-content {
-    padding: 16px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-/* 5. Typography */
-.service-category {
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    color: #666;
-    font-weight: 600;
-    background-color: #f5f5f5;
-    padding: 4px 8px;
-    border-radius: 4px;
-    align-self: flex-start;
-    /* Keeps the tag strictly on the left */
-}
-
-.service-title {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: #333;
-    margin: 0;
-    line-height: 1.4;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-}
-

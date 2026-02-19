@@ -9,15 +9,11 @@
 
         <a href="{% url 'serviceList' %}" class="back-link">← Service List</a>
 
-        <form method="POST">
+        <form method="POST" novalidate>
             {% csrf_token %}
 
             <div class="form-fields">
-                {{ form.as_p }}
-                {% comment %} {{form.serviceName | as_crispy_field}}
-                {{form.serviceDescription | as_crispy_field}}
-                {{form.servicePrice | as_crispy_field}}
-                {{form.categoryId | as_crispy_field}}  {% endcomment %}
+                {{ form|crispy }}
             </div>
 
             <button type="submit" class="submit-btn">Submit</button>
@@ -25,4 +21,5 @@
     </div>
 
 </div>
+
 {% endblock content %}
